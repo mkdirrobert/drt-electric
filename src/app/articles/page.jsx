@@ -36,7 +36,7 @@ function FeaturedProject({ project }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href="#">
+        <Card.Title href={`/articles/${project.slug}`}>
           {project.title}
         </Card.Title>
         <Card.Eyebrow
@@ -74,16 +74,19 @@ export default async function ArticlesIndex() {
   let featuredProjects = [
     {
       title: 'Pepsi-Cola',
+      slug: 'pepsi-cola',
       date: 'Decembrie 2023',
       description: 'Instalație electrică completă pentru fabrica Pepsi-Cola. Proiectul a inclus sisteme industriale de mare putere, automatizare avansată și soluții de eficiență energetică pentru întreaga unitate de producție.',
     },
     {
       title: 'Maternitatea Bega din Timișoara',
+      slug: 'maternitatea-bega',
       date: 'Martie 2023',
       description: 'Modernizarea completă a instalațiilor electrice pentru Maternitatea Bega. Am implementat sisteme de siguranță critică pentru mediul medical, iluminat specializat și infrastructură electrică de înaltă fiabilitate pentru echipamentele medicale.',
     },
     {
       title: 'Zuba Construct',
+      slug: 'zuba-construct',
       date: 'Iunie 2022',
       description: 'Proiectare și implementare a instalațiilor electrice pentru noul sediu Zuba Construct. Soluții inteligente de automatizare a clădirii, sistem de securitate integrat și infrastructură electrică eficientă pentru birouri și spații de producție.',
     },
