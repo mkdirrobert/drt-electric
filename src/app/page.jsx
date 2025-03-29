@@ -217,7 +217,7 @@ function Resume() {
           <Role key={serviceIndex} role={service} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-8 w-full text-base">
+      <Button href="/despre" variant="secondary" className="group mt-8 w-full text-base">
         Contactați-ne
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
