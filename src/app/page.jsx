@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { FaHome, FaBuilding, FaTools, FaWifi } from 'react-icons/fa'
+import { MdOutlineHomeWork } from 'react-icons/md'
+import { BiBuildingHouse } from 'react-icons/bi' 
+import { GiElectric, GiSmartphone } from 'react-icons/gi'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -140,13 +142,26 @@ function Role({ role }) {
   let endLabel = typeof role.end === 'string' ? role.end : role.end.label
   let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
 
+  // Helper function to get bg color based on icon color
+  const getBgColor = (iconColor) => {
+    if (iconColor?.includes('blue')) return 'bg-blue-100 dark:bg-blue-900/20'
+    if (iconColor?.includes('amber')) return 'bg-amber-100 dark:bg-amber-900/20'
+    if (iconColor?.includes('red')) return 'bg-red-100 dark:bg-red-900/20'
+    if (iconColor?.includes('purple')) return 'bg-purple-100 dark:bg-purple-900/20'
+    return 'bg-teal-100 dark:bg-teal-900/20'
+  }
+
   return (
     <li className="flex gap-5">
-      <div className="relative mt-1 flex h-12 w-12 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        {role.icon ? (
-          <role.icon className="h-6 w-6 text-zinc-600 dark:text-zinc-400" />
-        ) : (
-          <Image src={role.logo} alt="" className="h-8 w-8" unoptimized />
+      <div className={clsx(
+        "relative mt-1 flex h-12 w-12 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0",
+        getBgColor(role.iconColor)
+      )}>
+        {role.icon && (
+          <role.icon className={clsx(
+            "h-7 w-7",
+            role.iconColor || "text-teal-500 dark:text-teal-400"
+          )} />
         )}
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -177,7 +192,8 @@ function Resume() {
     {
       company: 'Servicii Rezidențiale',
       title: 'Soluții electrice pentru locuințe',
-      icon: FaHome,
+      icon: MdOutlineHomeWork,
+      iconColor: "text-blue-500 dark:text-blue-400",
       start: '',
       end: {
         label: '',
@@ -187,21 +203,24 @@ function Resume() {
     {
       company: 'Proiecte Comerciale',
       title: 'Sisteme electrice pentru afaceri',
-      icon: FaBuilding,
+      icon: BiBuildingHouse,
+      iconColor: "text-amber-500 dark:text-amber-400",
       start: '',
       end: '',
     },
     {
       company: 'Mentenanță și Reparații',
       title: 'Depanare și rezolvarea problemelor',
-      icon: FaTools,
+      icon: GiElectric,
+      iconColor: "text-red-500 dark:text-red-400",
       start: '',
       end: '',
     },
     {
       company: 'Integrare Smart Home',
       title: 'Soluții moderne de automatizare',
-      icon: FaWifi,
+      icon: GiSmartphone,
+      iconColor: "text-purple-500 dark:text-purple-400",
       start: '',
       end: '',
     },
