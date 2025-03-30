@@ -2,8 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { MdOutlineHomeWork } from 'react-icons/md'
-import { BiBuildingHouse } from 'react-icons/bi' 
-import { GiElectric, GiSmartphone } from 'react-icons/gi'
+import { GiFactory, GiElectric, GiSmartphone } from 'react-icons/gi'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -203,7 +202,7 @@ function Resume() {
     {
       company: 'Proiecte Comerciale',
       title: 'Sisteme electrice pentru afaceri',
-      icon: BiBuildingHouse,
+      icon: GiFactory,
       iconColor: "text-amber-500 dark:text-amber-400",
       start: '',
       end: '',
