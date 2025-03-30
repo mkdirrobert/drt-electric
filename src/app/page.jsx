@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { FaHome, FaBuilding, FaTools, FaWifi } from 'react-icons/fa'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -11,10 +12,6 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import image1 from '@/images/first-page/photo1.jpeg'
 import image2 from '@/images/first-page/photo2.jpeg'
 import image3 from '@/images/first-page/photo3.jpeg'
@@ -146,7 +143,11 @@ function Role({ role }) {
   return (
     <li className="flex gap-5">
       <div className="relative mt-1 flex h-12 w-12 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-8 w-8" unoptimized />
+        {role.icon ? (
+          <role.icon className="h-6 w-6 text-zinc-600 dark:text-zinc-400" />
+        ) : (
+          <Image src={role.logo} alt="" className="h-8 w-8" unoptimized />
+        )}
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
@@ -176,7 +177,7 @@ function Resume() {
     {
       company: 'Servicii Rezidențiale',
       title: 'Soluții electrice pentru locuințe',
-      logo: logoPlanetaria,
+      icon: FaHome,
       start: '',
       end: {
         label: '',
@@ -186,21 +187,21 @@ function Resume() {
     {
       company: 'Proiecte Comerciale',
       title: 'Sisteme electrice pentru afaceri',
-      logo: logoAirbnb,
+      icon: FaBuilding,
       start: '',
       end: '',
     },
     {
       company: 'Mentenanță și Reparații',
       title: 'Depanare și rezolvarea problemelor',
-      logo: logoFacebook,
+      icon: FaTools,
       start: '',
       end: '',
     },
     {
       company: 'Integrare Smart Home',
       title: 'Soluții moderne de automatizare',
-      logo: logoStarbucks,
+      icon: FaWifi,
       start: '',
       end: '',
     },
